@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A dashingly responsive web page</title>
+  <title>Adventrus</title>
 
   <style>
     * {
@@ -21,7 +21,7 @@
       font-size: calc(12px + 1vw);
       line-height: 1.4;
       overflow-x: hidden;
-      border-top: 1.5em solid #F2E4E2;
+      border-top: 1.5em solid #B0B0FF;
     }
     @media (min-width: 56.25em) {
       body {
@@ -47,11 +47,6 @@
       }
     }
 
-    code {
-      /* this trick is kinda weird: normalizes size of monospace fonts. */
-      font-family: monospace, monospace; 
-    }
-  
     a {
       color: #1E55A3;
     }
@@ -59,7 +54,7 @@
     footer {
       margin-top: 2em;
       padding: 1em;
-      background-color:  #F2E4E2;
+      background-color: #B0B0FF;
       font-family: Avenir Next, Avenir, SegoeUI, sans-serif;
     }
 
@@ -67,31 +62,6 @@
       font-weight: 500;
       margin:  0;
     }
-
-    button {
-      display: inline-block;
-      text-align: center;
-      border: 1px solid #142846;
-      border-radius: .25em;
-      padding: .25em 1em;
-      background-color: #43709F;
-      color: #fff;
-      font-size: inherit;
-      box-shadow: 0 .125em 0 0em #7B99B5;
-      -webkit-transition: all .15s;
-      transition: all .15s;
-      will-change: transform;
-    }
-    button:active,
-    button:focus {
-      border-color: #000;
-      background-color: #033286;
-    }
-    button:active {
-      -webkit-transform: translateY(.125em);
-      transform: translateY(.125em);
-    }
-
     .wrap {
       width: 95%;
       margin: 0 auto;
@@ -171,13 +141,8 @@
       width: 20em;
       height: 2em;
       border: 0;
-      background-image: radial-gradient(circle 1em at 18% 50%, #dae5ed 40%, transparent 0%),
-                        radial-gradient(circle 1em at 38% 50%, #dae5ed 40%, transparent 0%),
-                        radial-gradient(circle 1em at 60% 50%, #dae5ed 40%, transparent 0%),
-                        radial-gradient(circle 1em at 80% 50%, #dae5ed 40%, transparent 0%),
-                        linear-gradient(to right, #fff, #fff 60%, transparent 0%, transparent 80%, #fff 0%),
-                        linear-gradient(transparent, transparent .6em, #dae5ed 0%, #dae5ed 1.41em, transparent 0%);
-      background-size: 33% 100%;
+      background-image: linear-gradient(transparent, transparent .6em, #dae5ed 0%, #dae5ed 1.41em, transparent 0%);
+      background-size: 100% 100%;
     }
     @media print {
       hr {
@@ -194,7 +159,7 @@
       line-height: 1.25em;
       color: #21272b;
       font-weight: 400;
-      margin: 15% 0 5%;
+      margin: 15% 0 13%;
     }
 
     @media (min-width: 63.75em) {
@@ -219,49 +184,22 @@
       opacity: 0.8;
     }
 
-    h1 span:first-child {
+   h1 span:first-child {
       display: inline-block;
-      background-color: #dae5ed;
-      text-align: center;
       color: #414956;
-      font-weight: 600;
-      padding: .85em .75em;
-      border-radius: 2em;
-      font-size: 2.2em;
-      margin: -.75em -.75em -.65em;
-    }
-    h1 :nth-child(2) {
-      /* weird one: Safari will not show the correct weight of Hoefler Text
-         without using the PostScript name below.
-         Thank FSM for Clagnut! http://clagnut.com/blog/2228 */
-      font-family: 'HoeflerText-Regular', Hoefler Text, Times New Roman, Times, serif;
-      text-transform: none;
-      font-style: italic;
-      font-weight: 200;
-      margin-right: -.25em;
-      font-size: 2.2em;
-      top: -.04em;
-    }
-
-    h1 :nth-child(3) {
-      display: inline-block;
       -webkit-filter: url(#outlineglow);
       -moz-filter: url(#outlineglow);
       filter: url(#outlineglow);
-      width: 100%;
-      font-size: 1.48em;
+      background-color: #dae5ed;
+      width: 40%;
+      margin: -.75em -.75em -.65em;
+      padding: .85em .75em;
+      border-radius: 2em;
+      text-align: center;
       line-height: 1;
+      font-size: 1.48em;
       font-weight: 700;
-      margin-top: -.25em;
       letter-spacing: .06em;
-    }
-
-    h1 :nth-child(4) {
-      font-size: 1em;
-      letter-spacing: .7em;
-      margin-right: -1em;
-      position: relative;
-      top: -.25em;
     }
     /* end of fiddly stuff. */
 
@@ -291,92 +229,32 @@
         max-width: 60rem;
       }
     }
-
-    
-    /* Finally, here's the toggling of the Morse code stuff. */
-
-    /* hide this bit from browsers that don't understand MQ:s. */
-    @media only all {
-      .wrap, footer {
-        display:  none;
-      }
-      #hold-the-telegraph {
-        font-family: monospace, monospace;
-        white-space: pre;
-        letter-spacing: .2em;
-        overflow: visible;
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
-        -webkit-transform-origin: bottom left;
-        transform-origin: bottom left;
-      }
-    }
-    
-    @media (min-width: 240px) {
-      #hold-the-telegraph {
-        display: none;
-      }
-      .wrap, footer {
-        display: block;
-      }
-    }
-    #cheatmode:target #hold-the-telegraph {
-      display: block;
-    }
-    #cheatmode:target .wrap,
-    #cheatmode:target footer {
-      display: none;
-    }
   </style>
 </head>
-<body id="cheatmode">
+<body>
     <main>
       <div class="wrap">
 
         <h1>
-          <span>A</span>
-          <span>dashingly</span>
-          <span>responsive</span>
-          <span>web page</span>
+          <span>Adventrus</span>
         </h1>
         <div class="prose">
-          <p class="intro">Morse code, and the Telegraph, were simple in design, but changed the world. The same goes for the Web. Today’s lesson is themed around dots and dashes.</p>
+          <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at facilisis lorem. Aliquam placerat porta tempor. Quisque fermentum bibendum est nec ultricies. Cras augue ante, egestas a ante ut, pharetra volutpat arcu. Vivamus ultricies porttitor laoreet. Etiam et sollicitudin dui. Etiam eu velit est. Quisque eget accumsan lacus.</p>
           <hr>
-          <p>We can do beautiful work with the powerful capabilities of the web platform. But neither beauty nor power lie just in the visual appearance of our sites, because the web is not just visual. It’s universal.</p>
-          <p>Take this simple web page, for instance. It is not just responsive on the standard ”240px plus” screens of smartphones (watches?) and up to the what-have-you widths of tablets, laptops, TVs and desktop screens.</p>
-          <p>No, this one goes further: it actually sort of works on screens of <code>0px</code> and up.</p>
+          <p>Ut dignissim nibh non tellus elementum elementum a sed tellus. Fusce maximus dictum ex, in facilisis ipsum. Donec id sapien non orci ullamcorper efficitur. Integer vel fringilla turpis, quis sagittis eros. Nullam imperdiet vehicula magna, vitae cursus lectus fringilla consequat. Nunc ornare consequat velit ac euismod. Nulla eget augue sollicitudin, condimentum diam ac, vehicula lorem. Sed scelerisque eu enim non ultricies. Nullam vulputate diam nec risus euismod molestie. Vestibulum neque mauris, tincidunt vitae dui non, euismod tempor erat. Nullam auctor sapien sapien, sit amet accumsan enim efficitur et. Sed tincidunt, nisi eu tristique tristique, elit enim mollis velit, vel tristique dolor neque vel nunc. In congue urna sit amet tincidunt hendrerit. Nam lacus augue, convallis sed ipsum eget, aliquam convallis arcu. Aenean semper nunc nulla, ut scelerisque magna mollis vitae. Aenean sit amet pretium nulla, id maximus felis.</p>
           <hr>
-          <p><i>”Now hold on a minute”</i> I hear you say, <i>”since the web is not just visual, any web page can work as a printed page, or using a screen reader.”</i></p>
-          <p>True. But this one achieves its readability on viewports with a width of about <code>1em</code> (or so) and up <em>visually</em>, and does not require a screen reader or printer to work without a screen. Sort of.</p>
-          <p>Let me explain:</p>
+          <p><i>"Italics goes here"</i> regular text, <i>"Italics goes here Italics goes here"</i></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at facilisis lorem. Aliquam placerat porta tempor. Quisque fermentum bibendum est nec ultricies. Cras augue ante, egestas a ante ut, pharetra volutpat arcu. Vivamus ultricies porttitor laoreet. Etiam et sollicitudin dui. Etiam eu velit est. Quisque eget accumsan lacus.</p>
           <ul>
-            <li>On viewports less than <code>240px</code> in width, the text contents of the page are converted to <a href="https://en.wikipedia.org/wiki/Morse_code">Morse code</a>. This encoded string of dashes and dots is then displayed vertically instead of the page content. This only requires about one em of space. I can’t imagine what kind of smartphone would have a screen like that, but hey—nobody saw the iPhone coming either. Use your favorite devtools to resize down to that width—or hit <a href="#cheatmode">cheat mode</a>.</li>
-            <li>You can also press the play/stop buttons (if visible) below to read that Morse code version of the page in audio form, provided you are using a reasonably modern browser. That’s right, this page can actually beepity-beep itself using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Audio API</a> on supported devices (don’t forget to turn the volume up. Or down, if you’re in the quiet compartment of the train), without even having a functioning screen.</li>
+            <li>Praesent ultrices arcu quam, ac convallis diam malesuada nec. Nulla commodo pulvinar ultrices. Proin rhoncus porttitor ligula eu facilisis. Praesent sed tincidunt orci. Fusce malesuada diam ut sapien vehicula, eget accumsan augue rhoncus. Etiam at turpis lacus. Nam rhoncus lectus ut velit dictum imperdiet et non nulla. Nunc sed aliquam risus. Cras at nisi justo. In quam est, ullamcorper vitae magna eu, pharetra faucibus erat. Donec sed luctus tellus. Maecenas sit amet nisi vel nisi placerat euismod.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at facilisis lorem. Aliquam placerat porta tempor. Quisque fermentum bibendum est nec ultricies. Cras augue ante, egestas a ante ut, pharetra volutpat arcu. Vivamus ultricies porttitor laoreet. Etiam et sollicitudin dui. Etiam eu velit est. Quisque eget accumsan lacus.</li>
         </ul>
-
-        <p>Apart from these features, there’s all sorts of CSS trickery and little easter eggs going on for visual stuff. CSS Shapes, feature queries, SVG filters, gradient drawings… There’s a lot you can do with 10Kb! Have a look at the <a href="https://github.com/emilbjorklund/dashingly-responsive/">GitHub repository</a> to see what’s what.</p>
       </div>
     </div>
-
-    <div id="hold-the-telegraph"></div>
   </main>
   <footer>
-    <p>Hastily thought up and typed by <a href="https://thatemil.com">Emil Björklund</a> (<a href="https://twitter.com/thatemil">@thatemil</a>)</p>
+    <p>CEO Nathan Speight and CTO <a href="https://jxc159430.github.io">Jun Cho</a></p>
   </footer>
-  
-  <!-- poor man's <template>s... -->
-  <script id="buttons" type="text/x-template">
-    <li><button id="play">Play audio</button></li>
-    <li><button id="stop">Stop audio</button></li>
-  </script>
-
-  <script id="cheatlink" type="text/x-template">
-    <ul id="controls" aria-label="Control Morse code mode">
-      <li><a href="#cheatmode">Activate Cheat Mode for text</a></li>
-    </ul>
-  </script>
-
-  <script src="beep.js"></script>
 
   <svg height="0">
     <filter id="outlineglow">
