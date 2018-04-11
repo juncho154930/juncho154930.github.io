@@ -1,0 +1,519 @@
+// ----------------
+// Vars
+@color-bg : #fff;
+@color-fg : #505050;
+@color-alpha : #e40;
+@color-beta : #4f767d;
+@width-desktop : 960px;
+@width-mobile : 520px;
+
+@logo_svg : "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2034.2%2037.7%22%3E%3Cpath%20fill%3D%22%23000%22%20fill-opacity%3D%220.1%22%20d%3D%22M24.2%2030.2h1.5a57%2057%200%200%200%203-6.4c1.6-3.7-.5-8.3-.7-10l-.2-3.4-.6-.5s-4.2%206-4.7%2010%201.7%2010%201.7%2010zm-5-4.5c-2.6-1.7-5.7-3.7-7.8-7.5s-1-10.8-1-13S10%20.8%2010%20.8l.7-.8s6.7%207.3%208%2012.2-.8%209.8.6%2013.5zm2.3%205c-2.4.5-6.5%203-10.7%201.3S0%2024%200%2024v-1a37.5%2037.5%200%200%201%209%20.5c3.7%201%207.5%205%2012.5%207zm-6%207A15.7%2015.7%200%200%201%2020%2037c2%20.2%204.7%201%207.6.4%205.2-1.3%206.2-4.5%206.6-5.2-3.8%201.6-8.8-.5-12.7.8s-6%204.7-6%204.7z%22/%3E%3C/svg%3E%0A";
+@male_svg : "data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2050%2050%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M30%2035.5c-.2-1.6-.2-2.7-.2-4.2.8-.4%202-2.8%202.3-5%201%200%202-.5%202-2.7v-2c1-3%203-11.6-3-12.6-.5-1-2.2-1-4.4-1-9%200-10%207-8%2014-.3%201-1%201-.7%202%200%202%201%203%201.6%203%200%202%201.3%205%202%205v4c-1.6%204-7.7%201.3-12%207H42c-5-5.5-10-3.3-11.5-7l-.4-.5z%22/%3E%3C/svg%3E";
+@female_svg : "data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2050%2050%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M30%2035.5v-1.2c4.2-.4%207.3-1.5%207.3-2.7-3.3-3%202.7-24-8.5-23.6-.7-.6-2-1-3.7-1-15%201-8%2020.8-12%2024.5%200%201.2%203%202.2%207.5%202.7v1.2c-1.4%203.5-10.2%201.4-11.7%207h33c-.2-4.7-10-3.5-11.4-7H30z%22/%3E%3C/svg%3E";
+
+@sans : Helvetica, sans-serif;
+@serif : Palatino, serif;
+
+// ----------------
+// Media Queries
+@breakpoint-mobile : 860;
+// @mobile : ~"all and (max-width: @{breakpoint-mobile}px)"; // Default
+// @desktop : ~"all and (min-width: @{breakpoint-mobile}px)";
+@desktop : ~"(min-width: @{breakpoint-mobile}px)";
+
+// ----------------
+// Mixins
+.transition( @value : all .5s ease-out) {
+//	-webkit-transition: @value;
+	transition: @value;
+}
+
+// ----------------
+// Elements
+hr {
+	display: none;
+}
+a {
+	.transition();
+	color: @color-beta;
+	text-decoration: none;
+	border-bottom: dotted lighten(@color-beta, 40%) 2px;
+}
+a:hover {
+	color: #000;
+	border-bottom: dotted @color-alpha 2px;
+}
+
+// -- Headings -----
+h1 {
+	font: italic 300 4rem / 1 @serif;
+	margin: 0 0 1rem;
+	a, a:hover { border: none; }
+}
+h2 {
+	font: 700 2.4rem / 1.2 @sans;
+	em {
+		font-weight: 300;
+		font-style: normal;
+	}
+}
+h1, h2, h3 {
+	letter-spacing: -.1rem;
+	text-shadow:
+		1px 1px 0 @color-bg,
+		3px 3px 0 lighten(@color-fg, 60%)
+	;
+	b { font-weight: 700; }
+}
+
+// ----------------
+// Pseudo-reset
+html, h2, h3, p, ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+// ----------------
+// ----------------
+// Layout
+html {
+	font : 62.5% @serif;
+	box-sizing: border-box;
+}
+body {
+	font-size: 1.6em;
+	line-height: 1.5;
+	color: @color-fg;
+	margin: 0 auto;
+	padding: 0 10px 0 60px;
+	max-width: @width-mobile;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+// ----------------
+// Menu
+header nav {
+	position: fixed;
+	top: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: @width-mobile;
+	z-index: 10;
+
+	ul {
+		position: absolute;
+		top: 0;
+		left: 1rem;
+		width: 4rem;
+
+		a {
+			display: block;
+			margin: 0 0 1rem;
+			background: @color-bg;
+			border: none;
+			border-radius: 3px;
+			text-transform: uppercase;
+			text-align: center;
+			font: 700 1rem / 1rem @serif;
+			overflow: hidden;
+
+			height: 5rem;
+			width: 4rem;
+			box-shadow:
+				0 5px 5px 2px rgba(0, 0, 0, .1),
+				0 5px 10px -5px rgba(0, 0, 0, .75)
+			;
+			&:before {
+				content: attr(data-icon);
+				display: block;
+				width: 4rem;
+				height: 5rem;
+				line-height: 5rem;
+				border-radius: 2px;
+				font-size: 2.8rem;
+			}
+			&:hover {
+				border: none;
+			}
+		}
+	}
+}
+
+html,
+header div div,
+article[id] > div {
+	background:
+		url(@logo_svg) right -120px bottom -100px / auto 1600px no-repeat fixed,
+		radial-gradient(circle, lighten(@color-alpha, 20%), transparent 65%) center center / contain,
+		@color-alpha
+	;
+}
+
+// ----------------
+// Cards
+header div[id],
+article[id] {
+
+	// Switch Cards
+	&.c { // .close
+		max-height: 0;
+		overflow: hidden;
+		padding: 0;
+		transform: rotateX(180deg) scale(0);
+		opacity: 0;
+	}
+	overflow: visible;
+	max-height: 500rem;
+	transform: rotateX(0deg) scale(1);
+	opacity: 1;
+	// ---
+
+	.transition();
+	padding: 1rem 0 0;
+
+	> div {
+		// Overwrites in order to load just once the SVG string
+		background-position: right -90px bottom 30px;
+		background-size: auto 500px, 0;
+		background-attachment: scroll;
+		background-color: @color-bg;
+
+		border-radius: 2px;
+		display: block;
+		position: relative;
+		margin: 0 auto;
+
+		font-size: 1.5rem;
+		padding: 2rem;
+		box-shadow:
+			0 10px 100px 5px rgba(0, 0, 0, .1),
+			0 15px 20px -5px rgba(0, 0, 0, .1)
+		;
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: -2;
+			bottom: 20px;
+			left: 20px;
+			width: 60%;
+			height: 20%;
+			max-width: 400px;
+			max-height: 100px;
+			box-shadow: 0 15px 20px 10px rgba(0, 0, 0, .3);
+			transform: rotate(-2deg);
+		}
+		&:after {
+			right: 20px;
+			left: auto;
+			transform: rotate(2deg);
+		}
+
+		// -------------
+		// Inner Cards
+		> header {
+			margin: 0 0 1rem;
+		}
+
+		// ---------------
+		// Card Footer
+		> p:last-of-type, footer p {
+			clear: both;
+			border-top: double lighten(@color-fg, 60%) 3px;
+			margin: 1rem 0 0;
+			padding: 1rem 0 0;
+			text-transform: uppercase;
+			font-size: 1.3rem;
+		}
+	}
+}
+
+// -------------
+// Intro Card
+#i h2 + p {
+	margin: 0 0 2rem;
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+	font: 700 1.3rem / 1.2 @serif;
+	color: lighten(@color-fg, 25%);
+}
+
+
+// ---------------
+// PRIZES CARD ---
+#p {
+	h3 {
+		font: 300 2rem / 1.2 @sans;
+		b { display: inline-block; }
+	}
+	ul {
+		padding: .5rem 0 1rem 3rem;
+	}
+	li {
+		list-style: circle;
+	}
+}
+
+// ---------------
+// RULES CARD ----
+#r {
+	li {
+		position: relative;
+		border-bottom: dotted lighten(@color-fg, 60%) 2px;
+		margin: 0 0 1rem;
+		&:last-child {
+			border: none;
+			p { padding: 0; }
+		}
+		p {
+			padding: 0 0 1rem;
+		}
+	}
+	h3 {
+		font: 700 1.8rem @sans;
+		padding: .1rem 0 .5rem 0;
+	}
+}
+
+// ---------------
+// JUDGES CARD ---
+#j {
+	ul {
+		overflow: auto;
+	}
+	li {
+		width: 50%;
+		float: left;
+		padding: 1rem;
+		&.m a:before { background: url(@male_svg) center 0 / auto 90px no-repeat @color-beta; }
+	}
+	a {
+		display: block;
+		width: 100%;
+		border: none;
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
+		padding: 0 0 1rem;
+		background: @color-bg;
+		text-align: center;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		line-height: 1.2;
+	}
+	a:hover {
+		transform: translateY(-.5rem);
+	}
+	a:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 75px;
+		margin: 0 0 1rem;
+		background: url(@female_svg) center 0 / auto 90px no-repeat saturate(@color-alpha, -25%);
+	}
+	a:after {
+		content: attr(href);
+		display: block;
+		font-size: 1.2rem;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	a.u:after {
+		content: attr(data-u);
+	}
+
+}
+
+// ---------------
+// Card Footer
+body > footer {
+
+	padding: 1.5rem 0 0;
+	font-size: 1.3rem;
+	text-shadow: 0 .1rem 0 darken(@color-alpha, 10%);
+	color: @color-bg;
+
+	a {
+		color: lighten(@color-alpha, 35%);
+		border: none;
+		font-weight: 700;
+		border-bottom: dotted @color-alpha 2px;
+	}
+	a:hover {
+		color: @color-bg;
+		border-bottom: dotted darken(@color-alpha, 15%) 2px;
+	}
+
+	nav {
+		margin: 0 0 .5rem;
+		padding: 0 0 .5rem;
+		box-shadow:
+			0 .05rem 0 rgba(255, 255, 255, .2),
+			inset 0 -.05rem 0 fade( darken(@color-alpha, 30%), 20%)
+		;
+		li {
+			display: inline-block;
+			text-transform: uppercase;
+			padding: 0 .5rem 0 0;
+		}
+	}
+	p {
+		display: inline;
+	}
+	p:last-child {
+		background: darken(@color-alpha, 7.5%);
+		border-radius: 5px;
+		padding: 1rem;
+		margin: 1rem 0 2rem;
+		color: fade(#fff, 90%);
+		display: block;
+	}
+}
+
+// ------------------------------------
+// Mobile first. Bigger devices :
+@media @desktop {
+ 	h1 {
+		font-size: 6.2rem
+	}
+	h2 {
+		font-size: 3.2rem;
+	}
+	h1, h2 {
+		text-align: center;
+		&:before,
+		&:after {
+			content: '\2014\221E\00a0';
+			font-weight: 300;
+			color: lighten(@color-fg, 60%);
+			letter-spacing: -.8rem;
+			padding: 0 1.5rem;
+		}
+		&:after {
+			content: '\00a0\221E\2014';
+		}
+	}
+	body {
+		padding: 0 20px 0 110px;
+		max-width: @width-desktop;
+	}
+
+	// r:menu ---
+	header nav {
+		top: 2rem;
+		max-width: @width-desktop;
+		ul {
+			left: 2rem;
+			width: 7rem;
+			a {
+				height: 8rem;
+				width: 7rem;
+				box-shadow:
+					0 5px 5px 2px rgba(0, 0, 0, .1),
+					0 5px 10px -5px rgba(0, 0, 0, .75),
+					inset 0 0 0 4px @color-bg,
+					inset 0 0 0 5px lighten(@color-fg, 60%),
+					inset 0 0 0 6px @color-bg,
+					inset 0 0 0 7px lighten(@color-fg, 60%)
+				;
+				&:before {
+					width: 5rem;
+					font-size: 3.6rem;
+					margin: 0 auto .5rem;
+					padding: 1rem 0 0;
+				}
+			}
+		}
+	}
+
+	header div[id],
+	article[id] {
+
+		padding: 2rem 0 0;
+
+		> div {
+			font-size: 1.7rem;
+			padding: 6rem 8rem;
+			box-shadow:
+				0 10px 100px 5px rgba(0, 0, 0, .1),
+				0 15px 20px -5px rgba(0, 0, 0, .1),
+				inset 0 0 0 16px @color-bg,
+				inset 0 0 0 17px lighten(@color-fg, 60%),
+				inset 0 0 0 19px @color-bg,
+				inset 0 0 0 20px lighten(@color-fg, 60%)
+				,inset 0 0 0 22px @color-bg,
+				inset 0 0 0 24px lighten(@color-fg, 60%)
+			;
+			> header {
+				border-bottom: double lighten(@color-fg, 60%) 3px;
+				margin: 0 0 2rem;
+				padding: 0 0 1rem;
+			}
+			> p:last-of-type, footer p {
+				margin: 2rem 0 0;
+				padding: 2rem 0 0;
+				text-align: center;
+			}
+		}
+	}
+
+	#i h2 + p {
+		text-align: center;
+	}
+
+	#p {
+		section {
+			width: 50%;
+			float: left;
+			padding: 0 3rem 2rem 0;
+		}
+		h3 {
+			min-height: 10rem;
+			font-size: 2.4rem;
+		}
+	}
+
+	#r {
+		li {
+			padding: 0 0 0 180px;
+			min-height: 8rem;
+		}
+		h3 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 160px;
+			height: 80px;
+			text-align: right;
+			font-size: 2rem;
+		}
+	}
+
+	#j {
+		li {
+			width: 33.3%;
+		}
+	}
+
+	body > footer {
+		padding: 2rem 0 0;
+		font-size: 1.4rem;
+		text-align: center;
+
+		nav {
+			li {
+				padding: 0 1rem;
+				letter-spacing: .25rem;
+			}
+		}
+		p { display: block; }
+	}
+
+
+}
