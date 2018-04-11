@@ -161,15 +161,6 @@
       font-weight: 400;
       margin: 15% 0 13%;
     }
-
-    @media (min-width: 63.75em) {
-      h1 {
-        font-size: 5.75rem;
-        max-width: 59.625rem;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
     @media print {
       h1 {
         font-size: 1.8em;
@@ -204,10 +195,9 @@
     /* end of fiddly stuff. */
 
     /* make the layout a tiny bit more interesting at larger viewports: */
-    @media (min-width: 87.5em) {
+    @media (min-width: 800px) {
       h1 {
-        font-size: 5rem;
-        max-width: 50rem;
+        font-size: 3rem;
         float: right;
         -webkit-shape-outside: polygon(nonzero, 12.8% 46.9%, 8.6% 38.65%, 3.35% 24.15%, -0.45% -12.05%, 0 0, 101.6% -60.05%, 101.7% 67.6%, 15.65% 69%);
         shape-outside: polygon(nonzero, 12.8% 46.9%, 8.6% 38.65%, 3.35% 24.15%, -0.45% -12.05%, 0 0, 101.6% -60.05%, 101.7% 67.6%, 15.65% 69%);
