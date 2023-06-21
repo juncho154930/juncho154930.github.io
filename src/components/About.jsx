@@ -36,12 +36,12 @@ const ServiceCard = ({ index, title }) => {
         clearInterval(interval);
       }
 
-      iteration += 1 / 3;
+      iteration += 1;
     }, 30);
   };
 
   return (
-    <Tilt className="xs:w-72 w-full">
+    <Tilt className="xs:w-64 w-full">
       <motion.div
         variants={fadeIn("right", "spring", 0.3 * index, 0.75)}
         className="screen flex p-4 relative shadow-card overflow-hidden w-full border-[3px] border-bluergb-80 aspect-square text-white rounded-2xl bg-bluergb-15"
