@@ -22,5 +22,6 @@ steps to deploy:
 npm run build
 rename dist -> build
 npm run deploy
+  possibly remove this line if causing problems: "homepage": "https://juncho154930.github.io/",
 
 Clean up TODO
