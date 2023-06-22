@@ -18,4 +18,9 @@ actually, I have this setup on juncho154930.github.io/ repo, so after build, mov
 also, under juncho154930.github.io repo, I removed "predeploy": "npm run build" from package.json so it doesn't rewrite the build folder
 complicated, I know but its another one thing to change for TODO until I figure out where I want to host react pages. I'm considering putting it on my wordpress site junhyukcho.com
 
+steps to deploy:
+npm run build
+rename dist -> build
+npm run deploy
+
 Clean up TODO

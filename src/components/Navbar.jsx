@@ -31,6 +31,9 @@ const Navbar = () => {
           <button
             type="button"
             className="rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black"
+            onClick={() =>
+              window.open("https://github.com/juncho154930", "_blank")
+            }
           >
             Github
           </button>
