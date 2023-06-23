@@ -25,6 +25,7 @@ import {
   twinpeaks,
   selectquote,
   cfr,
+  assurance,
   carhub,
   dalle,
   sumz,
@@ -298,6 +299,31 @@ const projects = [
     ],
     image: cfr,
     site_link: "https://www.communityfinancialresources.org/mymoneygoalsapp",
+  },
+  {
+    name: "Assurance Mortgage",
+    description:
+      "Maintained main site and built internal site from ground up (af-hub.com) with frontend/backend development using PHP",
+    tags: [
+      {
+        name: "PHP",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Wordpress",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Gulp",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "MySQL",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: assurance,
+    site_link: "https://assurancemortgage.com/",
   },
 ];
 

@@ -31,6 +31,7 @@ import kaizenovate from "./project/kaizenovate.jpg";
 import twinpeaks from "./project/twinpeaks.jpg";
 import selectquote from "./project/selectquote.jpg";
 import cfr from "./project/cfr.jpg";
+import assurance from "./project/assurance.jpg"
 import carhub from "./demo/carhub.jpg";
 import dalle from "./demo/dalle.jpg";
 import sumz from "./demo/sumz.jpg";
@@ -66,6 +67,7 @@ export {
   twinpeaks,
   selectquote,
   cfr,
+  assurance,
   carhub,
   dalle,
   sumz,
