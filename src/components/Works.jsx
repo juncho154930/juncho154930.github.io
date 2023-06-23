@@ -102,8 +102,7 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-20 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Below are projects I have worked on my own time to improve my skillset
-          to be proactive and stay up to date with the latest technologies.
+          Below are projects I've worked on my own time to improve my skillset, be proactive and stay up to date with the latest technologies.
         </motion.p>
       </div>
 
