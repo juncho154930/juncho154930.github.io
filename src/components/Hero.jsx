@@ -17,7 +17,7 @@ const Hero = () => {
           <h1 className="font-black lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[98px] mt-2">
             Jun Hyuk Cho
             <span className="block lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] text-[#915eff]">
-              Frontend Developer
+              Fullstack Developer
             </span>
           </h1>
           <p className="text-[#dfd9ff] font-medium lg:text-[20px] sm:text-[16px] text-[14px] lg:leading-[28px] mt-2 max-w-[640px]">
